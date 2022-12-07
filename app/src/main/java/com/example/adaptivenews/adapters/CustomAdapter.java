@@ -1,4 +1,4 @@
-package com.example.adaptivenews;
+package com.example.adaptivenews.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.adaptivenews.Models.NewsHeadlines;
+import com.example.adaptivenews.api.models.NewsHeadlines;
+import com.example.adaptivenews.R;
+import com.example.adaptivenews.api.SelectListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

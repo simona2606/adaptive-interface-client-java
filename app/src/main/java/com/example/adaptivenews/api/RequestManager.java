@@ -1,9 +1,10 @@
-package com.example.adaptivenews;
+package com.example.adaptivenews.api;
 
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.adaptivenews.Models.NewsApiResponse;
+import com.example.adaptivenews.api.models.NewsApiResponse;
+import com.example.adaptivenews.R;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -1,6 +1,5 @@
-package com.example.adaptivenews;
+package com.example.adaptivenews.adapters;
 
-import android.media.Image;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -8,6 +7,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.adaptivenews.R;
 
 public class CustomViewHolder extends RecyclerView.ViewHolder {
     TextView text_title, text_source;

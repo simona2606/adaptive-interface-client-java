@@ -1,4 +1,4 @@
-package com.example.adaptivenews.Models;
+package com.example.adaptivenews.api.models;
 
 import java.io.Serializable;
 

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Adaptive News</string>
     <string name="api_key">01d252a9e743451b82b490cbb0cc7ef6</string>
+    <string-array name="type">
+        <item>Ipermetrope</item>
+        <item>Daltonico</item>
+        <item>Cecat</item>
+    </string-array>
 </resources>

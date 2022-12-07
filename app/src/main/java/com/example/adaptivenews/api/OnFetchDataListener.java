@@ -1,6 +1,6 @@
-package com.example.adaptivenews;
+package com.example.adaptivenews.api;
 
-import com.example.adaptivenews.Models.NewsHeadlines;
+import com.example.adaptivenews.api.models.NewsHeadlines;
 
 import java.util.List;
 
