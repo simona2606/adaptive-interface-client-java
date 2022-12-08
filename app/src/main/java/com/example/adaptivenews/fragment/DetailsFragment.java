@@ -3,6 +3,7 @@ package com.example.adaptivenews.fragment;
 import static android.content.Intent.getIntent;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +28,6 @@ public class DetailsFragment extends Fragment {
 
         DetailsFragmentArgs args = DetailsFragmentArgs.fromBundle(getArguments());
         headlines = args.getHeadlines();
-
         mBinding.textDetailTitle.setText(headlines.getTitle());
         mBinding.textDetailAuthor.setText(headlines.getAuthor());
         mBinding.textDetailTime.setText(headlines.getPublishedAt());

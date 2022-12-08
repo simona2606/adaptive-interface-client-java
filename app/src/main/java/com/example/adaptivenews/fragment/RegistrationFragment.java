@@ -1,27 +1,24 @@
 package com.example.adaptivenews.fragment;
 
-import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Toast;
-
 import com.example.adaptivenews.MyThread;
 import com.example.adaptivenews.R;
 import com.example.adaptivenews.databinding.FragmentLogInBinding;
 
+public class RegistrationFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
-public class LogInFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
     private FragmentLogInBinding mBinding;
     MyThread myThread;
@@ -38,22 +35,17 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
         mBinding.spinner.setOnItemSelectedListener(this);
 */
         //mBinding.loginBtn.setBackgroundColor(Color.parseColor("#474973"));
-        myThread = new MyThread();
-        new Thread(myThread).start();
-
-        mBinding.loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment);
-            }
-        });
+        //myThread = new MyThread();
+        //new Thread(myThread).start();
 
         mBinding.signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registrationFragment);
+                Navigation.findNavController(view).navigate(R.id.action_registrationFragment_to_homeFragment);
             }
         });
+
+
 
         return mBinding.getRoot();
     }
