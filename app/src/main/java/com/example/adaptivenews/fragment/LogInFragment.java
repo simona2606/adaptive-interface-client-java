@@ -1,16 +1,19 @@
 package com.example.adaptivenews.fragment;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -44,6 +47,8 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
         myThread = new MyThread();
         new Thread(myThread).start();
 
+
+
         mBinding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +59,8 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
                     LogInFragmentDirections.ActionLoginFragmentToHomeFragment action = LogInFragmentDirections.actionLoginFragmentToHomeFragment();
                     action.setAccessibility(user.getAccess());
                     Navigation.findNavController(view).navigate(action);
+
+
                 }else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")){
                     mBinding.EmptyName.setVisibility(View.VISIBLE);
                     mBinding.emptyPassw.setVisibility(View.VISIBLE);
@@ -63,6 +70,23 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
                 }else if (mBinding.Password.getText().toString().equals("")){
                     mBinding.EmptyName.setVisibility(View.INVISIBLE);
                     mBinding.emptyPassw.setVisibility(View.VISIBLE);
+                }
+
+                if (user.getAccess().equals("Deuteranopia")){
+                    mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+                    Window window = LogInFragment.this.getActivity().getWindow();
+                    window.setStatusBarColor(getResources().getColor(R.color.Deuteranopia));
+                    window.setNavigationBarColor(getResources().getColor(R.color.Deuteranopia));
+                }else if (user.getAccess().equals("Dichromasy")){
+                    mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+                    Window window = LogInFragment.this.getActivity().getWindow();
+                    window.setStatusBarColor(getResources().getColor(R.color.Dichromasy));
+                    window.setNavigationBarColor(getResources().getColor(R.color.Dichromasy));
+                }else if (user.getAccess().equals("Deuteranomaly")){
+                    mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+                    Window window = LogInFragment.this.getActivity().getWindow();
+                    window.setStatusBarColor(getResources().getColor(R.color.Deuteranomaly));
+                    window.setNavigationBarColor(getResources().getColor(R.color.Deuteranomaly));
                 }
             }
         });

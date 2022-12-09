@@ -2,12 +2,16 @@ package com.example.adaptivenews;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.navigation.NavController;
@@ -23,6 +27,7 @@ import com.example.adaptivenews.api.SelectListener;
 import com.example.adaptivenews.api.models.NewsApiResponse;
 import com.example.adaptivenews.api.models.NewsHeadlines;
 import com.example.adaptivenews.databinding.ActivityMainBinding;
+import com.example.adaptivenews.fragment.LogInFragment;
 
 import java.util.List;
 
@@ -33,8 +38,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
+ActionBar actionBar = getSupportActionBar();
+actionBar.hide();
+/*
 
+        Window window = this.getWindow();
+        window.setStatusBarColor(getResources().getColor(R.color.teal_700));
+        window.setNavigationBarColor(getResources().getColor(R.color.teal_700));
+        // Define ActionBar object
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar =this.getSupportActionBar();
+
+        // Define ColorDrawable object and parse color
+        // using parseColor method
+        // with color hash code as its parameter
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#0F9D58"));
+
+        // Set BackgroundDrawable
+        actionBar.setBackgroundDrawable(colorDrawable);*/
     }
+
+
 }

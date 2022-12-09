@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.adaptivenews.R;
 import com.example.adaptivenews.api.models.NewsHeadlines;
 import com.example.adaptivenews.databinding.FragmentDetailsBinding;
 import com.example.adaptivenews.databinding.FragmentHomeBinding;
@@ -20,7 +21,7 @@ import com.squareup.picasso.Picasso;
 public class DetailsFragment extends Fragment {
     NewsHeadlines headlines;
     private FragmentDetailsBinding mBinding;
-
+    private String access = new String();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -28,8 +29,17 @@ public class DetailsFragment extends Fragment {
 
         DetailsFragmentArgs args = DetailsFragmentArgs.fromBundle(getArguments());
         headlines = args.getHeadlines();
+        access = args.getAccessibility();
         mBinding.textDetailTitle.setText(headlines.getTitle());
         mBinding.textDetailAuthor.setText(headlines.getAuthor());
+
+        if (access.equals("Deuteranopia")){
+            mBinding.textDetailAuthor.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+        }else if (access.equals("Dichromasy")){
+            mBinding.textDetailAuthor.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+        }else if (access.equals("Deuteranomaly")){
+            mBinding.textDetailAuthor.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+        }
         mBinding.textDetailTime.setText(headlines.getPublishedAt());
         mBinding.textDetailDetail.setText(headlines.getDescription());
         mBinding.textDetailContent.setText(headlines.getContent());

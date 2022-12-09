@@ -74,6 +74,31 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
         mBinding.btn6.setOnClickListener(this);
         mBinding.btn7.setOnClickListener(this);
 
+        if (access.equals("Deuteranopia")){
+            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+        }else if (access.equals("Dichromasy")){
+            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+        }else if (access.equals("Deuteranomaly")){
+            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+        }
 
         RequestManager manager = new RequestManager(container.getContext());
         manager.getNewsHeadlines(listener, "general", null);
@@ -102,7 +127,7 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
         recyclerView = mBinding.recyclerMain;
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
-        adapter = new CustomAdapter(getContext(), list, this);
+        adapter = new CustomAdapter(getContext(), list, this,access);
         recyclerView.setAdapter(adapter);
     }
 
@@ -110,6 +135,7 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
     public void OnNewsClicked(NewsHeadlines headlines) {
         HomeFragmentDirections.ActionHomeFragmentToDetailsFragment action = HomeFragmentDirections.actionHomeFragmentToDetailsFragment(headlines);
         action.setHeadlines(headlines);
+        action.setAccessibility(access);
         Navigation.findNavController(requireView()).navigate(action);
     }
 

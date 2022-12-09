@@ -1,6 +1,7 @@
 package com.example.adaptivenews.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,11 +20,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     private Context context;
     private List<NewsHeadlines> headlines;
     private SelectListener listener;
+    private String access;
 
-    public CustomAdapter(Context context, List<NewsHeadlines> headlines, SelectListener listener) {
+    public CustomAdapter(Context context, List<NewsHeadlines> headlines, SelectListener listener,String accessibility) {
         this.context = context;
         this.headlines = headlines;
         this.listener = listener;
+        this.access = accessibility;
     }
 
     @NonNull
@@ -37,6 +40,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.text_title.setText(headlines.get(position).getTitle());
         holder.text_source.setText(headlines.get(position).getSource().getName());
 
+        if (access.equals("Deuteranopia")){
+            holder.text_source.setTextColor(Color.parseColor("#636161"));
+        }else if (access.equals("Dichromasy")){
+            holder.text_source.setTextColor(Color.parseColor("#636161"));
+        }else if (access.equals("Deuteranomaly")){
+            holder.text_source.setTextColor(Color.parseColor("#636161"));
+        }
         if (headlines.get(position).getUrlToImage()!=null) {
             Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);
         }

@@ -1,10 +1,12 @@
 package com.example.adaptivenews.fragment;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -31,6 +33,8 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        //getContext().getTheme().applyStyle(R.style.Theme_2,true);
+
         mBinding = FragmentRegistrationBinding.inflate(inflater, container, false);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.type, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -41,8 +45,21 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
                 if (mBinding.spinner.getSelectedItem().toString().equals("Deuteranopia")){
-                mBinding.signInBtn.setBackgroundColor(Color.parseColor("#474973"));
-            }
+                mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+                    Window window = RegistrationFragment.this.getActivity().getWindow();
+                    window.setStatusBarColor(getResources().getColor(R.color.Deuteranopia));
+                    window.setNavigationBarColor(getResources().getColor(R.color.Deuteranopia));
+            }else if (mBinding.spinner.getSelectedItem().toString().equals("Dichromasy")){
+                    mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+                    Window window = RegistrationFragment.this.getActivity().getWindow();
+                    window.setStatusBarColor(getResources().getColor(R.color.Dichromasy));
+                    window.setNavigationBarColor(getResources().getColor(R.color.Dichromasy));
+                }else if (mBinding.spinner.getSelectedItem().toString().equals("Deuteranomaly")){
+                    mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+                    Window window = RegistrationFragment.this.getActivity().getWindow();
+                    window.setStatusBarColor(getResources().getColor(R.color.Deuteranomaly));
+                    window.setNavigationBarColor(getResources().getColor(R.color.Deuteranomaly));
+                }
 
             }
 
@@ -111,4 +128,6 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
+
 }
