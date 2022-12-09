@@ -1,5 +1,6 @@
 package com.example.adaptivenews.fragment;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,33 +16,70 @@ import androidx.navigation.Navigation;
 
 import com.example.adaptivenews.MyThread;
 import com.example.adaptivenews.R;
+import com.example.adaptivenews.User;
 import com.example.adaptivenews.databinding.FragmentLogInBinding;
+import com.example.adaptivenews.databinding.FragmentRegistrationBinding;
 
 public class RegistrationFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
 
-    private FragmentLogInBinding mBinding;
+    private FragmentRegistrationBinding mBinding;
     MyThread myThread;
+    private User user = new User();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        mBinding = FragmentLogInBinding.inflate(inflater, container, false);
-
+        mBinding = FragmentRegistrationBinding.inflate(inflater, container, false);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.type, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        /*mBinding.spinner.setAdapter(adapter);
+        mBinding.spinner.setAdapter(adapter);
         mBinding.spinner.setOnItemSelectedListener(this);
-*/
-        //mBinding.loginBtn.setBackgroundColor(Color.parseColor("#474973"));
+        mBinding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mBinding.spinner.getSelectedItem().toString().equals("Deuteranopia")){
+                mBinding.signInBtn.setBackgroundColor(Color.parseColor("#474973"));
+            }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+        mBinding.emptyName.setVisibility(View.INVISIBLE);
+        mBinding.emptyPassword.setVisibility(View.INVISIBLE);
         //myThread = new MyThread();
         //new Thread(myThread).start();
 
         mBinding.signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_registrationFragment_to_homeFragment);
+                if (!mBinding.name.getText().toString().equals("") && !mBinding.Password.getText().toString().equals("")){
+                    user.setName(mBinding.name.getText().toString());
+                    user.setSurname(mBinding.surname.getText().toString());
+                    user.setPassword(mBinding.Password.getText().toString());
+                    user.setAccess(mBinding.spinner.getSelectedItem().toString());
+                    RegistrationFragmentDirections.ActionRegistrationFragmentToHomeFragment action = RegistrationFragmentDirections.actionRegistrationFragmentToHomeFragment();
+                    action.setAccessibility(user.getAccess());
+                    Navigation.findNavController(view).navigate(action);
+                }else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")){
+                    mBinding.emptyName.setVisibility(View.VISIBLE);
+                    mBinding.emptyPassword.setVisibility(View.VISIBLE);
+                }else if (mBinding.name.getText().toString().equals("")){
+                    mBinding.emptyPassword.setVisibility(View.INVISIBLE);
+                    mBinding.emptyName.setVisibility(View.VISIBLE);
+                }else if (mBinding.Password.getText().toString().equals("")){
+                    mBinding.emptyName.setVisibility(View.INVISIBLE);
+                    mBinding.emptyPassword.setVisibility(View.VISIBLE);
+                }
+
             }
         });
 

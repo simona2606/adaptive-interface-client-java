@@ -37,11 +37,14 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
     RecyclerView recyclerView;
     CustomAdapter adapter;
     ProgressDialog dialog;
+    private String access = new String();
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentHomeBinding.inflate(inflater, container, false);
+        HomeFragmentArgs args = HomeFragmentArgs.fromBundle(getArguments());
+        access = args.getAccessibility();
 
         mBinding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

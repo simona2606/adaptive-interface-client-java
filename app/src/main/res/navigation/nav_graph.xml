@@ -23,6 +23,10 @@
         <action
             android:id="@+id/action_homeFragment_to_detailsFragment"
             app:destination="@id/detailsFragment" />
+        <argument
+            android:name="accessibility"
+            app:argType="string"
+            android:defaultValue="No accessibility" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"
@@ -35,6 +39,10 @@
         <argument
             android:name="headlines"
             app:argType="com.example.adaptivenews.api.models.NewsHeadlines" />
+        <argument
+            android:name="accessibility"
+            app:argType="string"
+            android:defaultValue="No accessibility" />
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"

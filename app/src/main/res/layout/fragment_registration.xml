@@ -7,39 +7,6 @@
     tools:context=".fragment.RegistrationFragment">
 
     <TextView
-        android:id="@+id/empty_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:text="The field password must be not empty"
-        android:textColor="#E60D0D"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password"
-        tools:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/empty_access"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:text="The field accessibility must be not empty"
-        android:textColor="#E60D0D"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        tools:visibility="invisible" />
-
-    <TextView
-        android:id="@+id/empty_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:text="The field name must be not empty"
-        android:textColor="#E60D0D"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        tools:visibility="invisible" />
-
-    <TextView
         android:id="@+id/Registration"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,52 +49,48 @@
         app:layout_constraintTop_toBottomOf="@+id/Registration"
         app:srcCompat="@drawable/woman" />
 
-    <Button
-        android:id="@+id/sign_in_btn"
-        android:layout_width="112dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="40dp"
-        android:onClick="btnClickSnd"
-        android:padding="12dp"
-        android:text="Sign in"
-        app:cornerRadius="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
-
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="64dp"
         android:hint="Name"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/surname"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/empty_name"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="64dp"
-        android:hint="Surname"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:text="The field name must be not empty"
+        android:textColor="#E60D0D"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/empty_name" />
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/empty_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:text="The field password must be not empty"
+        android:textColor="#E60D0D"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Password"
+        tools:visibility="invisible" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="64dp"
         android:hint="Password"
         android:minHeight="48dp"
@@ -141,7 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="64dp"
         android:minHeight="48dp"
         android:padding="8dp"
@@ -150,6 +113,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Password"
         tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/sign_in_btn"
+        android:layout_width="112dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="24dp"
+        android:onClick="btnClickSnd"
+        android:padding="12dp"
+        android:text="Sign in"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="64dp"
+        android:hint="Surname"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/empty_name" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

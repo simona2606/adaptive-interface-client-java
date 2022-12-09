@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.adaptivenews.MyThread;
 import com.example.adaptivenews.R;
+import com.example.adaptivenews.User;
 import com.example.adaptivenews.databinding.FragmentLogInBinding;
 
 
@@ -25,6 +26,7 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
 
     private FragmentLogInBinding mBinding;
     MyThread myThread;
+    private User user = new User();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,9 +36,10 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.type, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        /*mBinding.spinner.setAdapter(adapter);
-        mBinding.spinner.setOnItemSelectedListener(this);
-*/
+
+        mBinding.emptyPassw.setVisibility(View.INVISIBLE);
+        mBinding.EmptyName.setVisibility(View.INVISIBLE);
+
         //mBinding.loginBtn.setBackgroundColor(Color.parseColor("#474973"));
         myThread = new MyThread();
         new Thread(myThread).start();
@@ -44,7 +47,23 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
         mBinding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment);
+                if (!mBinding.name.getText().toString().equals("") && !mBinding.Password.getText().toString().equals("")){
+                    user.setName(mBinding.name.getText().toString());
+                    user.setPassword(mBinding.Password.getText().toString());
+                    user.setAccess("Dichromasy");
+                    LogInFragmentDirections.ActionLoginFragmentToHomeFragment action = LogInFragmentDirections.actionLoginFragmentToHomeFragment();
+                    action.setAccessibility(user.getAccess());
+                    Navigation.findNavController(view).navigate(action);
+                }else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")){
+                    mBinding.EmptyName.setVisibility(View.VISIBLE);
+                    mBinding.emptyPassw.setVisibility(View.VISIBLE);
+                }else if (mBinding.name.getText().toString().equals("")){
+                    mBinding.emptyPassw.setVisibility(View.INVISIBLE);
+                    mBinding.EmptyName.setVisibility(View.VISIBLE);
+                }else if (mBinding.Password.getText().toString().equals("")){
+                    mBinding.EmptyName.setVisibility(View.INVISIBLE);
+                    mBinding.emptyPassw.setVisibility(View.VISIBLE);
+                }
             }
         });
 
