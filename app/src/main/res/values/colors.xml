@@ -7,8 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="Dichromasy">#FFFFFFFF</color>
-    <color name="Deuteranopia">#FFFFFFFF</color>
-    <color name="Deuteranomaly">#FFFFFFFF</color>
+    <color name="Dichromasy">#DF2935</color>
+    <color name="Deuteranopia">#3772FF</color>
+    <color name="Deuteranomaly">#03B5AA</color>
 
 </resources>

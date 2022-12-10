@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".fragment.HomeFragment">
+
+    <ImageButton
+        android:id="@+id/exitButton"
+        android:layout_width="65dp"
+        android:layout_height="60dp"
+        android:adjustViewBounds="false"
+        tools:ignore="SpeakableTextPresentCheck"
+        tools:src="@drawable/woman" />
+
     <HorizontalScrollView
         android:layout_margin = "6dp"
         android:layout_width="match_parent"
@@ -105,9 +114,9 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_main"
-        android:layout_margin="8dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="559dp"
+        android:layout_margin="8dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 

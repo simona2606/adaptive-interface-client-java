@@ -34,11 +34,17 @@ public class DetailsFragment extends Fragment {
         mBinding.textDetailAuthor.setText(headlines.getAuthor());
 
         if (access.equals("Deuteranopia")){
-            mBinding.textDetailAuthor.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.Deuteranopia));
         }else if (access.equals("Dichromasy")){
-            mBinding.textDetailAuthor.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.Dichromasy));
         }else if (access.equals("Deuteranomaly")){
-            mBinding.textDetailAuthor.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.Deuteranomaly));
+        }else if (access.equals("Low vision")){
+            mBinding.textDetailTitle.setTextSize(18);
+            mBinding.textDetailAuthor.setTextSize(18);
+            mBinding.textDetailTime.setTextSize(18);
+            mBinding.textDetailDetail.setTextSize(18);
+            mBinding.textDetailContent.setTextSize(18);
         }
         mBinding.textDetailTime.setText(headlines.getPublishedAt());
         mBinding.textDetailDetail.setText(headlines.getDescription());

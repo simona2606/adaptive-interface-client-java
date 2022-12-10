@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -62,6 +63,15 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             }
         });
 
+        mBinding.exitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                Navigation.findNavController(requireView()).navigate(HomeFragmentDirections.actionHomeFragmentToLoginFragment());
+
+            }
+        });
         dialog = new ProgressDialog(container.getContext());
         dialog.setTitle("Fetching news articles..");
         dialog.show();
@@ -82,6 +92,15 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
             mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
             mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+
+
+            mBinding.btn1.setTextSize(14);
+            mBinding.btn2.setTextSize(14);
+            mBinding.btn3.setTextSize(14);
+            mBinding.btn4.setTextSize(14);
+            mBinding.btn5.setTextSize(14);
+            mBinding.btn6.setTextSize(14);
+            mBinding.btn7.setTextSize(14);
         }else if (access.equals("Dichromasy")){
             mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
             mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
@@ -90,6 +109,13 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
             mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
             mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.btn1.setTextSize(14);
+            mBinding.btn2.setTextSize(14);
+            mBinding.btn3.setTextSize(14);
+            mBinding.btn4.setTextSize(14);
+            mBinding.btn5.setTextSize(14);
+            mBinding.btn6.setTextSize(14);
+            mBinding.btn7.setTextSize(14);
         }else if (access.equals("Deuteranomaly")){
             mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
             mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
@@ -98,6 +124,22 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
             mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
             mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+
+            mBinding.btn1.setTextSize(14);
+            mBinding.btn2.setTextSize(14);
+            mBinding.btn3.setTextSize(14);
+            mBinding.btn4.setTextSize(14);
+            mBinding.btn5.setTextSize(14);
+            mBinding.btn6.setTextSize(14);
+            mBinding.btn7.setTextSize(14);
+        }else if (access.equals("Low vision")){
+            mBinding.btn1.setTextSize(18);
+            mBinding.btn2.setTextSize(18);
+            mBinding.btn3.setTextSize(18);
+            mBinding.btn4.setTextSize(18);
+            mBinding.btn5.setTextSize(18);
+            mBinding.btn6.setTextSize(18);
+            mBinding.btn7.setTextSize(18);
         }
 
         RequestManager manager = new RequestManager(container.getContext());

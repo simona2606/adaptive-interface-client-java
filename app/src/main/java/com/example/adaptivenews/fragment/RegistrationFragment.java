@@ -2,6 +2,7 @@ package com.example.adaptivenews.fragment;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,16 +50,50 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.Deuteranopia));
                     window.setNavigationBarColor(getResources().getColor(R.color.Deuteranopia));
-            }else if (mBinding.spinner.getSelectedItem().toString().equals("Dichromasy")){
+
+                    mBinding.signInBtn.setTextSize(14);
+                    mBinding.emptyPassword.setTextSize(14);
+                    mBinding.emptyName.setTextSize(14);
+                    mBinding.name.setTextSize(14);
+                    mBinding.Password.setTextSize(14);
+                    mBinding.textview.setTextSize(14);
+                    mBinding.surname.setTextSize(14);
+
+                }else if (mBinding.spinner.getSelectedItem().toString().equals("Dichromasy")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.Dichromasy));
                     window.setNavigationBarColor(getResources().getColor(R.color.Dichromasy));
+                    mBinding.signInBtn.setTextSize(14);
+                    mBinding.emptyPassword.setTextSize(14);
+                    mBinding.emptyName.setTextSize(14);
+                    mBinding.name.setTextSize(14);
+                    mBinding.Password.setTextSize(14);
+                    mBinding.textview.setTextSize(14);
+                    mBinding.surname.setTextSize(14);
+
                 }else if (mBinding.spinner.getSelectedItem().toString().equals("Deuteranomaly")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.Deuteranomaly));
                     window.setNavigationBarColor(getResources().getColor(R.color.Deuteranomaly));
+                    mBinding.signInBtn.setTextSize(14);
+                    mBinding.emptyPassword.setTextSize(14);
+                    mBinding.emptyName.setTextSize(14);
+                    mBinding.name.setTextSize(14);
+                    mBinding.Password.setTextSize(14);
+                    mBinding.textview.setTextSize(14);
+                    mBinding.surname.setTextSize(14);
+
+                }else if (mBinding.spinner.getSelectedItem().toString().equals("Low vision")){
+                    mBinding.signInBtn.setTextSize(18);
+                    mBinding.emptyPassword.setTextSize(18);
+                    mBinding.emptyName.setTextSize(18);
+                    mBinding.name.setTextSize(18);
+                    mBinding.Password.setTextSize(18);
+                    mBinding.textview.setTextSize(18);
+                    mBinding.surname.setTextSize(18);
+
                 }
 
             }
