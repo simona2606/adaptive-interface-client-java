@@ -41,8 +41,9 @@ public class MainActivity extends AppCompatActivity {
 
         mBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mBinding.getRoot());
-ActionBar actionBar = getSupportActionBar();
-actionBar.hide();
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();
 /*
 
         Window window = this.getWindow();

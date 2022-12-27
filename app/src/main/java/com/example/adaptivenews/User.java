@@ -8,8 +8,6 @@ public class User {
    private String access;
    private String password;
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

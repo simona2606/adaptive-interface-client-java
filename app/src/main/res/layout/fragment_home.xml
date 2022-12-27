@@ -7,13 +7,16 @@
     android:orientation="vertical"
     tools:context=".fragment.HomeFragment">
 
-    <ImageButton
+    <Button
         android:id="@+id/exitButton"
-        android:layout_width="65dp"
-        android:layout_height="60dp"
-        android:adjustViewBounds="false"
-        tools:ignore="SpeakableTextPresentCheck"
-        tools:src="@drawable/woman" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="6dp"
+        android:paddingHorizontal="18dp"
+        app:icon="@drawable/ic_baseline_logout_24"
+        android:rotation="180"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <HorizontalScrollView
         android:layout_margin = "6dp"

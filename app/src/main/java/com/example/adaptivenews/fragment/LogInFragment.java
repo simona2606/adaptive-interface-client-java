@@ -47,8 +47,6 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
         myThread = new MyThread();
         new Thread(myThread).start();
 
-
-
         mBinding.loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +84,6 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
                     mBinding.EmptyName.setVisibility(View.INVISIBLE);
                     mBinding.emptyPassw.setVisibility(View.VISIBLE);
                 }
-
 
             }
         });

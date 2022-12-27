@@ -11,4 +11,38 @@
     <color name="Deuteranopia">#3772FF</color>
     <color name="Deuteranomaly">#03B5AA</color>
 
+    <color name="primary_text">#212121</color>
+
+    <!-- PALETTE BASE -->
+    <color name="primary_light">#FFCCBC</color>
+    <color name="primary_dark">#E64A19</color>
+    <color name="primary">#FF5722</color>
+    <color name="accent_color">#607D8B</color>
+    <color name="secondary_text">#757575</color>
+    <color name="divider_color">#BDBDBD</color>
+
+    <!-- PALETTE DEUTERANOMALY -->
+    <color name="primary_light_deuteranomaly">#F6C9B3</color>
+    <color name="primary_dark_deuteranomaly">#B9680F</color>
+    <color name="primary_deuteranomaly">#D17613</color>
+    <color name="accent_color_deuteranomaly">#676D81</color>
+    <color name="secondary_text_deuteranomaly">#71686A</color>
+    <color name="divider_color_deuteranomaly">#C0B1B6</color>
+
+    <!-- PALETTE DEUTERANOPIA -->
+    <color name="primary_light_deuteranopia">#F2CAB3</color>
+    <color name="primary_dark_deuteranopia">#9E7600</color>
+    <color name="primary_deuteranopia">#B38600</color>
+    <color name="accent_color_deuteranopia">#6E6B81</color>
+    <color name="secondary_text_deuteranopia">#74676B</color>
+    <color name="divider_color_deuteranopia">#C6AFB6</color>
+
+    <!-- PALETTE PARTIAL MONOCHROMACY -->
+    <color name="primary_light_mono">#E3CFC9</color>
+    <color name="primary_dark_mono">#955E50</color>
+    <color name="primary_mono">#A96D5D</color>
+    <color name="accent_color_mono">#636D72</color>
+    <color name="secondary_text_mono">#6A6A6A</color>
+    <color name="divider_color_mono">#B5B5B5</color>
+
 </resources>

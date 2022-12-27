@@ -19,21 +19,22 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                app:cardElevation="8dp">
+                android:layout_margin="16dp"
+                app:cardElevation="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
+                    android:layout_margin="12dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/text_detail_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black"
-                        android:textSize="26sp"
+                        android:textColor="@color/primary_text"
+                        android:textSize="24sp"
+                        android:textAlignment="textStart"
                         android:textStyle="bold">
 
                     </TextView>
@@ -52,8 +53,8 @@
                         android:id="@+id/text_detail_author"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:textColor="@color/purple_500"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/secondary_text"
                         android:textSize="16sp">
 
                     </TextView>
@@ -63,7 +64,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/primary_text"
                         android:textSize="16sp">
 
                     </TextView>
@@ -75,9 +76,9 @@
                 android:id="@+id/text_detail_detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:textAlignment="center"
-                android:textColor="@color/black"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/primary_text"
+                android:paddingHorizontal="16dp"
                 android:textSize="22sp">
 
             </TextView>
@@ -89,12 +90,14 @@
                 android:layout_marginTop="8dp"
                 android:ellipsize="none"
                 android:enabled="false"
+                android:paddingHorizontal="16dp"
                 android:scrollbarAlwaysDrawHorizontalTrack="false"
                 android:scrollbars="vertical"
                 android:scrollHorizontally="false"
-                android:textAlignment="center"
-                android:textColor="@color/black"
-                android:textSize="20sp"></TextView>
+                android:textColor="@color/primary_text"
+                android:textSize="18sp">
+
+            </TextView>
 
         </LinearLayout>
     </ScrollView>
