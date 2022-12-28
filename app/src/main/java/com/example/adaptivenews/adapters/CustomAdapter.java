@@ -42,14 +42,16 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.text_source.setText(headlines.get(position).getSource().getName());
 
         if (access.equals("Deuteranopia")){
-            holder.text_source.setTextColor(Color.parseColor("#636161"));
-        }else if (access.equals("Dichromasy")){
-            holder.text_source.setTextColor(Color.parseColor("#636161"));
+            holder.text_source.setTextColor(Color.parseColor("#74676B"));
+        }else if (access.equals("Monochromacy")){
+            holder.text_source.setTextColor(Color.parseColor("#6A6A6A"));
         }else if (access.equals("Deuteranomaly")){
-            holder.text_source.setTextColor(Color.parseColor("#636161"));
+            holder.text_source.setTextColor(Color.parseColor("#71686A"));
         }else if (access.equals("Low vision")){
             holder.text_title.setTextSize(18);
             holder.text_source.setTextSize(18);
+        }else{
+            holder.text_source.setTextColor(Color.parseColor("#757575"));
         }
         if (headlines.get(position).getUrlToImage()!=null) {
             Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);

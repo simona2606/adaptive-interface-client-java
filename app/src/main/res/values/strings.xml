@@ -4,7 +4,7 @@
     <string-array name="type">
         <item>No accessibility</item>
         <item>Deuteranomaly</item>
-        <item>Dichromasy</item>
+        <item>Monochromacy</item>
         <item>Deuteranopia</item>
         <item>Low vision</item>
     </string-array>

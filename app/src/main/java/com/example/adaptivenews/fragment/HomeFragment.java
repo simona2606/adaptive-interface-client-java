@@ -84,14 +84,14 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
         mBinding.btn7.setOnClickListener(this);
 
         if (access.equals("Deuteranopia")){
-            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
-            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
-            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
-            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
-            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
-            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
-            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
-            mBinding.exitButton.setBackgroundColor(getResources().getColor(R.color.Deuteranopia));
+            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
+            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
+            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
+            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
+            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
+            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
+            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
+            mBinding.exitButton.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
 
             mBinding.btn1.setTextSize(14);
             mBinding.btn2.setTextSize(14);
@@ -100,15 +100,15 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             mBinding.btn5.setTextSize(14);
             mBinding.btn6.setTextSize(14);
             mBinding.btn7.setTextSize(14);
-        }else if (access.equals("Dichromasy")){
-            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
-            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
-            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
-            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
-            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
-            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
-            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
-            mBinding.exitButton.setBackgroundColor(getResources().getColor(R.color.Dichromasy));
+        }else if (access.equals("Monochromacy")){
+            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.primary_mono));
+            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.primary_mono));
+            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.primary_mono));
+            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.primary_mono));
+            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.primary_mono));
+            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.primary_mono));
+            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.primary_mono));
+            mBinding.exitButton.setBackgroundColor(getResources().getColor(R.color.primary_mono));
 
             mBinding.btn1.setTextSize(14);
             mBinding.btn2.setTextSize(14);
@@ -118,14 +118,14 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             mBinding.btn6.setTextSize(14);
             mBinding.btn7.setTextSize(14);
         }else if (access.equals("Deuteranomaly")){
-            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
-            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
-            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
-            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
-            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
-            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
-            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
-            mBinding.exitButton.setBackgroundColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
+            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
+            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
+            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
+            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
+            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
+            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
+            mBinding.exitButton.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
 
             mBinding.btn1.setTextSize(14);
             mBinding.btn2.setTextSize(14);
@@ -135,6 +135,16 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             mBinding.btn6.setTextSize(14);
             mBinding.btn7.setTextSize(14);
         }else if (access.equals("Low vision")){
+
+            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.exitButton.setBackgroundColor(getResources().getColor(R.color.primary));
+
             mBinding.btn1.setTextSize(18);
             mBinding.btn2.setTextSize(18);
             mBinding.btn3.setTextSize(18);
@@ -142,6 +152,16 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             mBinding.btn5.setTextSize(18);
             mBinding.btn6.setTextSize(18);
             mBinding.btn7.setTextSize(18);
+
+        }else{
+            mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn3.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn4.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn5.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn6.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.btn7.setBackgroundColor(getResources().getColor(R.color.primary));
+            mBinding.exitButton.setBackgroundColor(getResources().getColor(R.color.primary));
 
         }
 

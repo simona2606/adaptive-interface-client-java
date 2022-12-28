@@ -34,11 +34,11 @@ public class DetailsFragment extends Fragment {
         mBinding.textDetailAuthor.setText(headlines.getAuthor());
 
         if (access.equals("Deuteranopia")){
-            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.Deuteranopia));
-        }else if (access.equals("Dichromasy")){
-            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.Dichromasy));
+            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.secondary_text_deuteranopia));
+        }else if (access.equals("Monochromacy")){
+            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.secondary_text_mono));
         }else if (access.equals("Deuteranomaly")){
-            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.Deuteranomaly));
+            mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.secondary_text_deuteranomaly));
         }else if (access.equals("Low vision")){
             mBinding.textDetailTitle.setTextSize(18);
             mBinding.textDetailAuthor.setTextSize(18);
