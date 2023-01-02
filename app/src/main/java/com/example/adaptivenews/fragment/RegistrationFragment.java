@@ -17,11 +17,16 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import com.example.adaptivenews.Client;
+import com.example.adaptivenews.MainActivity;
 import com.example.adaptivenews.MyThread;
 import com.example.adaptivenews.R;
 import com.example.adaptivenews.User;
 import com.example.adaptivenews.databinding.FragmentLogInBinding;
 import com.example.adaptivenews.databinding.FragmentRegistrationBinding;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class RegistrationFragment extends Fragment implements AdapterView.OnItemSelectedListener{
 
@@ -29,12 +34,15 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     private FragmentRegistrationBinding mBinding;
     MyThread myThread;
     private User user = new User();
+    private Client client = new Client();
+    private Thread thread;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //getContext().getTheme().applyStyle(R.style.Theme_2,true);
+
 
         mBinding = FragmentRegistrationBinding.inflate(inflater, container, false);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.type, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -44,7 +52,6 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         mBinding.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                // your code here
                 if (mBinding.spinner.getSelectedItem().toString().equals("Deuteranopia")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
@@ -58,7 +65,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     mBinding.Password.setTextSize(14);
                     mBinding.textview.setTextSize(14);
 
-                }else if (mBinding.spinner.getSelectedItem().toString().equals("Monochromacy")){
+                } else if (mBinding.spinner.getSelectedItem().toString().equals("Monochromacy")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary_mono));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.divider_color_mono));
@@ -71,7 +78,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     mBinding.Password.setTextSize(14);
                     mBinding.textview.setTextSize(14);
 
-                }else if (mBinding.spinner.getSelectedItem().toString().equals("Deuteranomaly")){
+                } else if (mBinding.spinner.getSelectedItem().toString().equals("Deuteranomaly")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.divider_color_deuteranomaly));
@@ -84,7 +91,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     mBinding.Password.setTextSize(14);
                     mBinding.textview.setTextSize(14);
 
-                }else if (mBinding.spinner.getSelectedItem().toString().equals("Low vision")){
+                } else if (mBinding.spinner.getSelectedItem().toString().equals("Low vision")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.primary_light));
@@ -97,7 +104,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     mBinding.Password.setTextSize(18);
                     mBinding.textview.setTextSize(18);
 
-                }else{
+                } else{
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.primary_light));
@@ -116,34 +123,40 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
 
         mBinding.emptyName.setVisibility(View.INVISIBLE);
         mBinding.emptyPassword.setVisibility(View.INVISIBLE);
-        //myThread = new MyThread();
-        //new Thread(myThread).start();
+
 
         mBinding.signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!mBinding.name.getText().toString().equals("") && !mBinding.Password.getText().toString().equals("")){
+
+
+                if (!mBinding.name.getText().toString().equals("") && !mBinding.Password.getText().toString().equals("")) {
                     user.setName(mBinding.name.getText().toString());
                     user.setPassword(mBinding.Password.getText().toString());
                     user.setAccess(mBinding.spinner.getSelectedItem().toString());
+                    thread = new Thread(client);
+                    thread.start();
+                    client.setClient(user);
+                    client.sendMessage(user.getName());
+                    client.sendMessage(user.getPassword());
+                    client.sendMessage(user.getAccess());
+
                     RegistrationFragmentDirections.ActionRegistrationFragmentToHomeFragment action = RegistrationFragmentDirections.actionRegistrationFragmentToHomeFragment();
                     action.setAccessibility(user.getAccess());
                     Navigation.findNavController(view).navigate(action);
-                }else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")){
+                } else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")) {
                     mBinding.emptyName.setVisibility(View.VISIBLE);
                     mBinding.emptyPassword.setVisibility(View.VISIBLE);
-                }else if (mBinding.name.getText().toString().equals("")){
+                } else if (mBinding.name.getText().toString().equals("")) {
                     mBinding.emptyPassword.setVisibility(View.INVISIBLE);
                     mBinding.emptyName.setVisibility(View.VISIBLE);
-                }else if (mBinding.Password.getText().toString().equals("")){
+                } else if (mBinding.Password.getText().toString().equals("")) {
                     mBinding.emptyName.setVisibility(View.INVISIBLE);
                     mBinding.emptyPassword.setVisibility(View.VISIBLE);
                 }
 
             }
         });
-
-
 
         return mBinding.getRoot();
     }
