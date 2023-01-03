@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.adaptivenews.Client;
 import com.example.adaptivenews.MyThread;
 import com.example.adaptivenews.R;
 import com.example.adaptivenews.User;
@@ -30,6 +31,8 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
     private FragmentLogInBinding mBinding;
     MyThread myThread;
     private User user = new User();
+    private Client client = new Client();
+    private Thread thread;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,38 +56,44 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
                 if (!mBinding.name.getText().toString().equals("") && !mBinding.Password.getText().toString().equals("")){
                     user.setName(mBinding.name.getText().toString());
                     user.setPassword(mBinding.Password.getText().toString());
+
+                    user.setAccess("Deuteranopia");
+                    client.setClient(user, "login");
+                    thread = new Thread(client);
+                    thread.start();
+
                     LogInFragmentDirections.ActionLoginFragmentToHomeFragment action = LogInFragmentDirections.actionLoginFragmentToHomeFragment();
                     action.setAccessibility(user.getAccess());
                     Navigation.findNavController(view).navigate(action);
 
-                    if (user.getAccess().equals("Deuteranopia")){
+                    if (user.getAccess().equals("Deuteranopia")) {
                         mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary_deuteranopia));
                         Window window = LogInFragment.this.getActivity().getWindow();
                         window.setStatusBarColor(getResources().getColor(R.color.divider_color_deuteranopia));
                         window.setNavigationBarColor(getResources().getColor(R.color.divider_color_deuteranopia));
-                    }else if (user.getAccess().equals("Monochromacy")){
+                    } else if (user.getAccess().equals("Monochromacy")){
                         mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary_mono));
                         Window window = LogInFragment.this.getActivity().getWindow();
                         window.setStatusBarColor(getResources().getColor(R.color.divider_color_mono));
                         window.setNavigationBarColor(getResources().getColor(R.color.divider_color_mono));
-                    }else if (user.getAccess().equals("Deuteranomaly")){
+                    } else if (user.getAccess().equals("Deuteranomaly")){
                         mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
                         Window window = LogInFragment.this.getActivity().getWindow();
                         window.setStatusBarColor(getResources().getColor(R.color.divider_color_deuteranomaly));
                         window.setNavigationBarColor(getResources().getColor(R.color.divider_color_deuteranomaly));
-                    }else{
+                    } else {
                         mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary));
                         Window window = LogInFragment.this.getActivity().getWindow();
                         window.setStatusBarColor(getResources().getColor(R.color.primary_light));
                         window.setNavigationBarColor(getResources().getColor(R.color.primary_light));
                     }
-                }else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")){
+                } else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")) {
                     mBinding.EmptyName.setVisibility(View.VISIBLE);
                     mBinding.emptyPassw.setVisibility(View.VISIBLE);
-                }else if (mBinding.name.getText().toString().equals("")){
+                } else if (mBinding.name.getText().toString().equals("")) {
                     mBinding.emptyPassw.setVisibility(View.INVISIBLE);
                     mBinding.EmptyName.setVisibility(View.VISIBLE);
-                }else if (mBinding.Password.getText().toString().equals("")){
+                } else if (mBinding.Password.getText().toString().equals("")) {
                     mBinding.EmptyName.setVisibility(View.INVISIBLE);
                     mBinding.emptyPassw.setVisibility(View.VISIBLE);
                 }

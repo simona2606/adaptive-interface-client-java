@@ -44,6 +44,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
         //getContext().getTheme().applyStyle(R.style.Theme_2,true);
 
 
+
         mBinding = FragmentRegistrationBinding.inflate(inflater, container, false);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.type, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -129,17 +130,18 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
             @Override
             public void onClick(View view) {
 
-
                 if (!mBinding.name.getText().toString().equals("") && !mBinding.Password.getText().toString().equals("")) {
                     user.setName(mBinding.name.getText().toString());
                     user.setPassword(mBinding.Password.getText().toString());
                     user.setAccess(mBinding.spinner.getSelectedItem().toString());
+
+                    client.setClient(user, "registration");
                     thread = new Thread(client);
                     thread.start();
-                    client.setClient(user);
-                    client.sendMessage(user.getName());
-                    client.sendMessage(user.getPassword());
-                    client.sendMessage(user.getAccess());
+
+                   // client.sendMessage(user.getName());
+                   // client.sendMessage(user.getPassword());
+                   // client.sendMessage(user.getAccess());
 
                     RegistrationFragmentDirections.ActionRegistrationFragmentToHomeFragment action = RegistrationFragmentDirections.actionRegistrationFragmentToHomeFragment();
                     action.setAccessibility(user.getAccess());

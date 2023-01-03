@@ -12,9 +12,7 @@ public class MyThread implements Runnable {
     @Override
     public void run() {
         try {
-           // socket = new Socket("20.197.17.179", 8080);
-           // socket = new Socket("10.1.135.64", 5002);
-            socket = new Socket("192.168.1.12", 5002);
+            socket = new Socket("192.168.1.12", 5003);
             dos = new DataOutputStream(socket.getOutputStream());
             dos.writeUTF(msg);
             dos.close();
