@@ -46,7 +46,7 @@ public class DetailsFragment extends Fragment {
             mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.secondary_text_deuteranomaly));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(Deuteranomaly);
             mBinding.imgDetailNews.setColorFilter(filter);
-        }else if (access.equals("Low vision")){
+        }else if (access.equals("LowVision")){
             mBinding.textDetailTitle.setTextSize(18);
             mBinding.textDetailAuthor.setTextSize(18);
             mBinding.textDetailTime.setTextSize(18);

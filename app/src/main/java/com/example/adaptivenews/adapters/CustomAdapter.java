@@ -58,7 +58,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
             holder.text_source.setTextColor(Color.parseColor("#71686A"));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(Deuteranomaly);
             holder.img_headline.setColorFilter(filter);
-        }else if (access.equals("Low vision")){
+        }else if (access.equals("LowVision")){
             holder.text_title.setTextSize(18);
             holder.text_source.setTextSize(18);
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(NORMAL);

@@ -57,13 +57,13 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
                     user.setName(mBinding.name.getText().toString());
                     user.setPassword(mBinding.Password.getText().toString());
 
-                    user.setAccess("Deuteranopia");
+                    user.setAccess("Default");
                     client.setClient(user, "login");
                     thread = new Thread(client);
                     thread.start();
 
                     while (thread.isAlive() && client.getOperationSuccessfullyCompleted().equals("")) {
-                        System.out.println("loading");
+                        //System.out.println("loading");
                     }
                     if (!client.getOperationSuccessfullyCompleted().equals("error")) {
                         user.setAccess(client.getOperationSuccessfullyCompleted());
@@ -92,10 +92,11 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
                             window.setStatusBarColor(getResources().getColor(R.color.primary_light));
                             window.setNavigationBarColor(getResources().getColor(R.color.primary_light));
                         }
-                    }else{
+                    } else {
+                        client.setOperationSuccessfullyCompleted();
                         Toast.makeText(getContext(),"Login error",Toast.LENGTH_SHORT).show();
-
                     }
+
                     } else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")) {
                         mBinding.EmptyName.setVisibility(View.VISIBLE);
                         mBinding.emptyPassw.setVisibility(View.VISIBLE);
@@ -106,7 +107,6 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
                         mBinding.EmptyName.setVisibility(View.INVISIBLE);
                         mBinding.emptyPassw.setVisibility(View.VISIBLE);
                     }
-
             }
         });
 

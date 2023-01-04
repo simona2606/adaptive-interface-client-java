@@ -101,7 +101,7 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     ColorMatrixColorFilter filter = new ColorMatrixColorFilter(Deuteranomaly);
                     mBinding.imageView.setColorFilter(filter);
 
-                } else if (mBinding.spinner.getSelectedItem().toString().equals("Low vision")){
+                } else if (mBinding.spinner.getSelectedItem().toString().equals("LowVision")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.primary_light));

@@ -134,7 +134,7 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
             mBinding.btn5.setTextSize(14);
             mBinding.btn6.setTextSize(14);
             mBinding.btn7.setTextSize(14);
-        }else if (access.equals("Low vision")){
+        }else if (access.equals("LowVision")){
 
             mBinding.btn1.setBackgroundColor(getResources().getColor(R.color.primary));
             mBinding.btn2.setBackgroundColor(getResources().getColor(R.color.primary));

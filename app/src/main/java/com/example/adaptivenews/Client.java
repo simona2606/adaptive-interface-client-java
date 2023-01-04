@@ -40,15 +40,22 @@ public class Client implements Runnable {
                 String message = input.readLine();
                 System.out.println("*******************************");
                 System.out.println(message);
-                if (flag.equals("registration") && message.contains("Successfully")){
-                    System.out.println("mammt");
+                if (flag.equals("registration") && message.contains("Successfully")) {
                     operationSuccessfullyCompleted = "registration completed";
-                }else if (flag.equals("login") && message.contains("Successfully")){
-                    String parts[] = message.split("-");
-
-                    operationSuccessfullyCompleted = parts[1];
-                }else if (!message.isEmpty()){
-                    operationSuccessfullyCompleted = "error";
+                } else if (flag.equals("login") && message.contains("Successfully")) {
+                    String parts[] = message.split(" ");
+                    for(String part: parts) {
+                        System.out.println(part);
+                    }
+                    if (parts[4].equals("Default")) {
+                        operationSuccessfullyCompleted = "error";
+                    } else {
+                        operationSuccessfullyCompleted = parts[4];
+                    }
+                    System.out.println("Parts: " + parts[4]);
+                    //operationSuccessfullyCompleted = parts[4];
+                } else if (!message.isEmpty()){
+                   // operationSuccessfullyCompleted = "error";
                 }
                 if (message == null || "Disconnect".contentEquals(message)) {
                     boolean interrupted = Thread.interrupted();
@@ -82,7 +89,9 @@ public class Client implements Runnable {
     public String getOperationSuccessfullyCompleted(){
         return operationSuccessfullyCompleted;
     }
-
+    public void setOperationSuccessfullyCompleted() {
+        operationSuccessfullyCompleted = "";
+    }
 }
 
 
