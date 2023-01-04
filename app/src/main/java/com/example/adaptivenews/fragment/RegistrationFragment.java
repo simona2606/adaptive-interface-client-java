@@ -2,6 +2,7 @@ package com.example.adaptivenews.fragment;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -66,6 +67,9 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     mBinding.Password.setTextSize(14);
                     mBinding.textview.setTextSize(14);
 
+                    ColorMatrixColorFilter filter = new ColorMatrixColorFilter(DEUTERANOPIA);
+                    mBinding.imageView.setColorFilter(filter);
+
                 } else if (mBinding.spinner.getSelectedItem().toString().equals("Monochromacy")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary_mono));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
@@ -79,6 +83,9 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     mBinding.Password.setTextSize(14);
                     mBinding.textview.setTextSize(14);
 
+                    ColorMatrixColorFilter filter = new ColorMatrixColorFilter(ACROMATOPSIA);
+                    mBinding.imageView.setColorFilter(filter);
+
                 } else if (mBinding.spinner.getSelectedItem().toString().equals("Deuteranomaly")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary_deuteranomaly));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
@@ -91,6 +98,8 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     mBinding.name.setTextSize(14);
                     mBinding.Password.setTextSize(14);
                     mBinding.textview.setTextSize(14);
+                    ColorMatrixColorFilter filter = new ColorMatrixColorFilter(Deuteranomaly);
+                    mBinding.imageView.setColorFilter(filter);
 
                 } else if (mBinding.spinner.getSelectedItem().toString().equals("Low vision")){
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary));
@@ -105,12 +114,17 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     mBinding.Password.setTextSize(18);
                     mBinding.textview.setTextSize(18);
 
+                    ColorMatrixColorFilter filter = new ColorMatrixColorFilter(NORMAL);
+                    mBinding.imageView.setColorFilter(filter);
+
                 } else{
                     mBinding.signInBtn.setBackgroundColor(getResources().getColor(R.color.primary));
                     Window window = RegistrationFragment.this.getActivity().getWindow();
                     window.setStatusBarColor(getResources().getColor(R.color.primary_light));
                     window.setNavigationBarColor(getResources().getColor(R.color.primary_light));
 
+                    ColorMatrixColorFilter filter = new ColorMatrixColorFilter(NORMAL);
+                    mBinding.imageView.setColorFilter(filter);
                 }
 
             }
@@ -139,13 +153,20 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     thread = new Thread(client);
                     thread.start();
 
+                    while(thread.isAlive() && client.getOperationSuccessfullyCompleted().equals("")){
+                        System.out.println("loading");
+                    }
+
                    // client.sendMessage(user.getName());
                    // client.sendMessage(user.getPassword());
                    // client.sendMessage(user.getAccess());
-
-                    RegistrationFragmentDirections.ActionRegistrationFragmentToHomeFragment action = RegistrationFragmentDirections.actionRegistrationFragmentToHomeFragment();
-                    action.setAccessibility(user.getAccess());
-                    Navigation.findNavController(view).navigate(action);
+                    if (client.getOperationSuccessfullyCompleted().equals("registration completed")) {
+                        RegistrationFragmentDirections.ActionRegistrationFragmentToHomeFragment action = RegistrationFragmentDirections.actionRegistrationFragmentToHomeFragment();
+                        action.setAccessibility(user.getAccess());
+                        Navigation.findNavController(view).navigate(action);
+                    }else{
+                        Toast.makeText(getContext(),"Registration error",Toast.LENGTH_SHORT).show();
+                    }
                 } else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")) {
                     mBinding.emptyName.setVisibility(View.VISIBLE);
                     mBinding.emptyPassword.setVisibility(View.VISIBLE);
@@ -187,5 +208,36 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
 
     }
 
+    private static final float[] Deuteranomaly = {
+            0.8f ,0.2f ,0,0,0,
+            0.258f,0.742f ,0,0,0,
+            0,0.142f,0.858f,0,0,
+            0,0,0,1,0,
+            0,0,0,0
+    };
+
+    private static final float[] ACROMATOPSIA = {
+            0.299f,0.587f,0.114f,0,0,
+            0.299f,0.587f,0.114f,0,0,
+            0.299f,0.587f,0.114f,0,0,
+            0,0,0,1,0,
+            0,0,0,0,1
+    };
+
+    private static final float[] DEUTERANOPIA = {
+            0.625f,0.375f,0,0,0,
+            0.7f,0.3f,0,0,0,
+            0,0.3f,0.7f,0,0,
+            0,0,0,1,0,
+            0,0,0,0,1
+    };
+
+    private static final float[] NORMAL = {
+            1,0,0,0,0,
+            0,1,0,0,0,
+            0,0,1,0,0,
+            0,0,0,1,0,
+            0,0,0,0,1
+    };
 
 }

@@ -214,4 +214,5 @@ public class HomeFragment extends Fragment implements SelectListener, View.OnCli
         manager.getNewsHeadlines(listener, category, null);
 
     }
+
 }

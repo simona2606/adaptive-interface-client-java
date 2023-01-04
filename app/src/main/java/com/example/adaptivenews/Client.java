@@ -19,6 +19,7 @@ public class Client implements Runnable {
     private BufferedReader input;
     private User user;
     private String flag;
+    private String operationSuccessfullyCompleted = new String();
 
     public void setClient(User user, String flag) {
         this.flag = flag;
@@ -39,6 +40,16 @@ public class Client implements Runnable {
                 String message = input.readLine();
                 System.out.println("*******************************");
                 System.out.println(message);
+                if (flag.equals("registration") && message.contains("Successfully")){
+                    System.out.println("mammt");
+                    operationSuccessfullyCompleted = "registration completed";
+                }else if (flag.equals("login") && message.contains("Successfully")){
+                    String parts[] = message.split("-");
+
+                    operationSuccessfullyCompleted = parts[1];
+                }else if (!message.isEmpty()){
+                    operationSuccessfullyCompleted = "error";
+                }
                 if (message == null || "Disconnect".contentEquals(message)) {
                     boolean interrupted = Thread.interrupted();
                     message = "Server Disconnected: " + interrupted;
@@ -68,6 +79,9 @@ public class Client implements Runnable {
         }).start();
     }
 
+    public String getOperationSuccessfullyCompleted(){
+        return operationSuccessfullyCompleted;
+    }
 
 }
 

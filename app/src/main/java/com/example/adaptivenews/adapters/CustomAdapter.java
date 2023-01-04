@@ -2,6 +2,7 @@ package com.example.adaptivenews.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.ColorMatrixColorFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,20 +42,31 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
         holder.text_title.setText(headlines.get(position).getTitle());
         holder.text_source.setText(headlines.get(position).getSource().getName());
 
+        if (headlines.get(position).getUrlToImage()!=null) {
+            Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);
+        }
+
         if (access.equals("Deuteranopia")){
             holder.text_source.setTextColor(Color.parseColor("#74676B"));
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(DEUTERANOPIA);
+            holder.img_headline.setColorFilter(filter);
         }else if (access.equals("Monochromacy")){
             holder.text_source.setTextColor(Color.parseColor("#6A6A6A"));
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(ACROMATOPSIA);
+            holder.img_headline.setColorFilter(filter);
         }else if (access.equals("Deuteranomaly")){
             holder.text_source.setTextColor(Color.parseColor("#71686A"));
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(Deuteranomaly);
+            holder.img_headline.setColorFilter(filter);
         }else if (access.equals("Low vision")){
             holder.text_title.setTextSize(18);
             holder.text_source.setTextSize(18);
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(NORMAL);
+            holder.img_headline.setColorFilter(filter);
         }else{
             holder.text_source.setTextColor(Color.parseColor("#757575"));
-        }
-        if (headlines.get(position).getUrlToImage()!=null) {
-            Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);
+            ColorMatrixColorFilter filter = new ColorMatrixColorFilter(NORMAL);
+            holder.img_headline.setColorFilter(filter);
         }
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,4 +80,39 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
     public int getItemCount() {
         return headlines.size();
     }
+
+
+
+
+    private static final float[] Deuteranomaly = {
+            0.8f ,0.2f ,0,0,0,
+            0.258f,0.742f ,0,0,0,
+            0,0.142f,0.858f,0,0,
+            0,0,0,1,0,
+            0,0,0,0
+    };
+
+    private static final float[] ACROMATOPSIA = {
+            0.299f,0.587f,0.114f,0,0,
+            0.299f,0.587f,0.114f,0,0,
+            0.299f,0.587f,0.114f,0,0,
+            0,0,0,1,0,
+            0,0,0,0,1
+    };
+
+    private static final float[] DEUTERANOPIA = {
+            0.625f,0.375f,0,0,0,
+            0.7f,0.3f,0,0,0,
+            0,0.3f,0.7f,0,0,
+            0,0,0,1,0,
+            0,0,0,0,1
+    };
+
+    private static final float[] NORMAL = {
+            1,0,0,0,0,
+            0,1,0,0,0,
+            0,0,1,0,0,
+            0,0,0,1,0,
+            0,0,0,0,1
+    };
 }
