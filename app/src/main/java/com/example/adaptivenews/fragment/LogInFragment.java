@@ -56,7 +56,6 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
                 if (!mBinding.name.getText().toString().equals("") && !mBinding.Password.getText().toString().equals("")) {
                     user.setName(mBinding.name.getText().toString());
                     user.setPassword(mBinding.Password.getText().toString());
-
                     user.setAccess("Default");
                     client.setClient(user, "login");
                     thread = new Thread(client);

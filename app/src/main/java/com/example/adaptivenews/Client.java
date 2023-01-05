@@ -33,6 +33,9 @@ public class Client implements Runnable {
             socket = new Socket(serverAddr, SERVER_PORT);
             String tmp = new String();
             tmp = user.getName() + "-" + user.getPassword() + "-" + user.getAccess() + "-" + flag;
+            if (flag.equals("check")) {
+                tmp = user.getName() + "-" + user.getPassword() + "-" + "Default" + "-" + flag;
+            }
             sendMessage(tmp);
 
             this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -40,7 +43,21 @@ public class Client implements Runnable {
                 String message = input.readLine();
                 System.out.println("*******************************");
                 System.out.println(message);
-                if (flag.equals("registration") && message.contains("Successfully")) {
+
+                if (flag.equals("check") && message.contains("Accessibility")) {
+                    
+                    String parts[] = message.split(" ");
+                    for(String part: parts) {
+                        System.out.println(part);
+                    }
+                    if (parts[1].equals("Default")) {
+                        operationSuccessfullyCompleted = "registration possible";
+                    } else {
+                        operationSuccessfullyCompleted = "error";
+                    }
+                    System.out.println("Parts: " + parts[1]);
+                }
+                 if (flag.equals("registration") && message.contains("Successfully")) {
                     operationSuccessfullyCompleted = "registration completed";
                 } else if (flag.equals("login") && message.contains("Successfully")) {
                     String parts[] = message.split(" ");
@@ -54,8 +71,8 @@ public class Client implements Runnable {
                     }
                     System.out.println("Parts: " + parts[4]);
                     //operationSuccessfullyCompleted = parts[4];
-                } else if (!message.isEmpty()){
-                   // operationSuccessfullyCompleted = "error";
+                } else if (flag.equals("registration") && message.contains("Error")){
+                    operationSuccessfullyCompleted = "error";
                 }
                 if (message == null || "Disconnect".contentEquals(message)) {
                     boolean interrupted = Thread.interrupted();

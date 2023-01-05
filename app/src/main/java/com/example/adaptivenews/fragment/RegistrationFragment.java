@@ -41,10 +41,6 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        //getContext().getTheme().applyStyle(R.style.Theme_2,true);
-
-
 
         mBinding = FragmentRegistrationBinding.inflate(inflater, container, false);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.type, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -149,17 +145,24 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                     user.setPassword(mBinding.Password.getText().toString());
                     user.setAccess(mBinding.spinner.getSelectedItem().toString());
 
-                    client.setClient(user, "registration");
+                    client.setClient(user, "check");
                     thread = new Thread(client);
                     thread.start();
 
                     while(thread.isAlive() && client.getOperationSuccessfullyCompleted().equals("")){
-                        System.out.println("loading");
+
                     }
 
-                   // client.sendMessage(user.getName());
-                   // client.sendMessage(user.getPassword());
-                   // client.sendMessage(user.getAccess());
+                    if (client.getOperationSuccessfullyCompleted().equals("registration possible")) {
+                        client.setOperationSuccessfullyCompleted();
+                        client.setClient(user, "registration");
+                        thread = new Thread(client);
+                        thread.start();
+                        while(thread.isAlive() && client.getOperationSuccessfullyCompleted().equals("")){
+                            //System.out.println("loading");
+                        }
+                    }
+
                     if (client.getOperationSuccessfullyCompleted().equals("registration completed")) {
                         RegistrationFragmentDirections.ActionRegistrationFragmentToHomeFragment action = RegistrationFragmentDirections.actionRegistrationFragmentToHomeFragment();
                         action.setAccessibility(user.getAccess());
