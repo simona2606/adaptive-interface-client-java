@@ -37,7 +37,7 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         mBinding = FragmentLogInBinding.inflate(inflater, container, false);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.type, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
@@ -46,7 +46,7 @@ public class LogInFragment extends Fragment implements AdapterView.OnItemSelecte
         mBinding.emptyPassw.setVisibility(View.INVISIBLE);
         mBinding.EmptyName.setVisibility(View.INVISIBLE);
 
-        //mBinding.loginBtn.setBackgroundColor(Color.parseColor("#474973"));
+
         myThread = new MyThread();
         new Thread(myThread).start();
 

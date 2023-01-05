@@ -127,14 +127,13 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
 
             @Override
             public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
+
             }
 
         });
 
         mBinding.emptyName.setVisibility(View.INVISIBLE);
         mBinding.emptyPassword.setVisibility(View.INVISIBLE);
-
 
         mBinding.signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,7 +166,8 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
                         RegistrationFragmentDirections.ActionRegistrationFragmentToHomeFragment action = RegistrationFragmentDirections.actionRegistrationFragmentToHomeFragment();
                         action.setAccessibility(user.getAccess());
                         Navigation.findNavController(view).navigate(action);
-                    }else{
+                    } else {
+                        client.setOperationSuccessfullyCompleted();
                         Toast.makeText(getContext(),"Registration error",Toast.LENGTH_SHORT).show();
                     }
                 } else if (mBinding.name.getText().toString().equals("") && mBinding.Password.getText().toString().equals("")) {
@@ -190,8 +190,6 @@ public class RegistrationFragment extends Fragment implements AdapterView.OnItem
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
     }
 
     public void btnClickSnd(View v) {

@@ -44,24 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
-/*
 
-        Window window = this.getWindow();
-        window.setStatusBarColor(getResources().getColor(R.color.teal_700));
-        window.setNavigationBarColor(getResources().getColor(R.color.teal_700));
-        // Define ActionBar object
-        // Define ActionBar object
-        ActionBar actionBar;
-        actionBar =this.getSupportActionBar();
-
-        // Define ColorDrawable object and parse color
-        // using parseColor method
-        // with color hash code as its parameter
-        ColorDrawable colorDrawable
-                = new ColorDrawable(Color.parseColor("#0F9D58"));
-
-        // Set BackgroundDrawable
-        actionBar.setBackgroundDrawable(colorDrawable);*/
     }
 
 

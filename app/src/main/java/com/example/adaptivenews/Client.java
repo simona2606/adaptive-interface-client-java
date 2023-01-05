@@ -70,7 +70,7 @@ public class Client implements Runnable {
                         operationSuccessfullyCompleted = parts[4];
                     }
                     System.out.println("Parts: " + parts[4]);
-                    //operationSuccessfullyCompleted = parts[4];
+
                 } else if (flag.equals("registration") && message.contains("Error")){
                     operationSuccessfullyCompleted = "error";
                 }

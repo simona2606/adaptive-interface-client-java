@@ -46,24 +46,24 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomViewHolder> {
             Picasso.get().load(headlines.get(position).getUrlToImage()).into(holder.img_headline);
         }
 
-        if (access.equals("Deuteranopia")){
+        if (access.equals("Deuteranopia")) {
             holder.text_source.setTextColor(Color.parseColor("#74676B"));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(DEUTERANOPIA);
             holder.img_headline.setColorFilter(filter);
-        }else if (access.equals("Monochromacy")){
+        } else if (access.equals("Monochromacy")) {
             holder.text_source.setTextColor(Color.parseColor("#6A6A6A"));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(ACROMATOPSIA);
             holder.img_headline.setColorFilter(filter);
-        }else if (access.equals("Deuteranomaly")){
+        } else if (access.equals("Deuteranomaly")) {
             holder.text_source.setTextColor(Color.parseColor("#71686A"));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(Deuteranomaly);
             holder.img_headline.setColorFilter(filter);
-        }else if (access.equals("LowVision")){
+        } else if (access.equals("LowVision")) {
             holder.text_title.setTextSize(18);
             holder.text_source.setTextSize(18);
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(NORMAL);
             holder.img_headline.setColorFilter(filter);
-        }else{
+        } else {
             holder.text_source.setTextColor(Color.parseColor("#757575"));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(NORMAL);
             holder.img_headline.setColorFilter(filter);

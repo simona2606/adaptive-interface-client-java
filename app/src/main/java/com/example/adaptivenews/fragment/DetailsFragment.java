@@ -34,19 +34,19 @@ public class DetailsFragment extends Fragment {
         mBinding.textDetailTitle.setText(headlines.getTitle());
         mBinding.textDetailAuthor.setText(headlines.getAuthor());
 
-        if (access.equals("Deuteranopia")){
+        if (access.equals("Deuteranopia")) {
             mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.secondary_text_deuteranopia));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(DEUTERANOPIA);
             mBinding.imgDetailNews.setColorFilter(filter);
-        }else if (access.equals("Monochromacy")){
+        } else if (access.equals("Monochromacy")) {
             mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.secondary_text_mono));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(ACROMATOPSIA);
             mBinding.imgDetailNews.setColorFilter(filter);
-        }else if (access.equals("Deuteranomaly")){
+        } else if (access.equals("Deuteranomaly")) {
             mBinding.textDetailAuthor.setTextColor(getResources().getColor(R.color.secondary_text_deuteranomaly));
             ColorMatrixColorFilter filter = new ColorMatrixColorFilter(Deuteranomaly);
             mBinding.imgDetailNews.setColorFilter(filter);
-        }else if (access.equals("LowVision")){
+        } else if (access.equals("LowVision")) {
             mBinding.textDetailTitle.setTextSize(18);
             mBinding.textDetailAuthor.setTextSize(18);
             mBinding.textDetailTime.setTextSize(18);
