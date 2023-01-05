@@ -42,7 +42,7 @@
                     <ImageView
                         android:id="@+id/img_detail_news"
                         android:layout_width="match_parent"
-                        android:layout_height="250dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:scaleType="fitXY"
                         android:src="@drawable/not_available">
