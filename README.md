@@ -8,7 +8,7 @@ The application performs two main functions:
 It is possible during the account registration phase to select which visual anomalies you are afflicted with by being able to choose from: **low vision**, **deuteranopia**, **deuteranomaly**, and **achromatopsia**.
 
 The colors of the application vary according to the selected abnormality also involving images retrieved from the internet. Specifically, for each case we treat, we have the following color palettes:
-* LOW VISION: For the color palette in the case of low vision or no visual abnormality, we used:
+* LOW VISION: for the color palette in the case of low vision or no visual abnormality, we used:
   ```
      <color name="primary_light">#FFCCBC</color> 
      <color name="primary_dark">#E64A19</color> 
@@ -28,7 +28,7 @@ The colors of the application vary according to the selected abnormality also in
   };
   ```
 
-* DEUTERANOPY: For the color palette in the case of deuteranopia, we used:
+* DEUTERANOPY: for the color palette in the case of deuteranopia, we used:
 ```
     <color name="primary_light_deuteranopia">#F2CAB3</color> 
     <color name="primary_dark_deuteranopia">#9E7600</color> 
@@ -47,7 +47,7 @@ The colors of the application vary according to the selected abnormality also in
       0,0,0,0,1
   };
   ```
-* DEUTERANOMALY: For the color palette in the case of deuteranomaly, we used:
+* DEUTERANOMALY: for the color palette in the case of deuteranomaly, we used:
 ```
     <color name="primary_light_deuteranomaly">#F6C9B3</color> 
     <color name="primary_dark_deuteranomaly">#B9680F</color> 
@@ -66,7 +66,7 @@ While to edit the images we applied the following grid:
       0,0,0,0
   };
   ```
-* ACROMATOPSIA: For the color palette in the case of achromatopsia, we used:
+* ACROMATOPSIA: for the color palette in the case of achromatopsia, we used:
 ```
     <color name="primary_light_mono">#E3CFC9</color>
     <color name="primary_dark_mono">#955E50</color> 
