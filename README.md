@@ -17,16 +17,16 @@ The colors of the application vary according to the selected abnormality also in
      <color name="secondary_text">#757575</color> 
      <color name="divider_color">#BDBDBD</color> 
   ```
- While to edit the images we applied the following grid:
- ```
- private static final float[] LOW VISION = { 
-      1,0,0,0,0,
-      0,1,0,0,0, 
-      0,0,1,0,0, 
-      0,0,0,1,0, 
-      0,0,0,0,1
-  };
-  ```
+     While to edit the images we applied the following grid:
+     ```
+     private static final float[] LOW VISION = { 
+          1,0,0,0,0,
+          0,1,0,0,0, 
+          0,0,1,0,0, 
+          0,0,0,1,0, 
+          0,0,0,0,1
+      };
+      ```
 
 * DEUTERANOPY: for the color palette in the case of deuteranopia, we used:
 ```
@@ -37,16 +37,16 @@ The colors of the application vary according to the selected abnormality also in
     <color name="secondary_text_deuteranopia">#74676B</color> 
     <color name="divider_color_deuteranopia">#C6AFB6</color>
   ```
-  While to edit the images we applied the following grid:
-  ```
- private static final float[] DEUTERANOPY = { 
-      0.625f,0.375f,0,0,0,
-      0.7f,0.3f,0,0,0, 
-      0,0.3f,0.7f,0,0, 
-      0,0,0,1,0, 
-      0,0,0,0,1
-  };
-  ```
+   While to edit the images we applied the following grid:
+    ```
+   private static final float[] DEUTERANOPY = { 
+        0.625f,0.375f,0,0,0,
+        0.7f,0.3f,0,0,0, 
+        0,0.3f,0.7f,0,0, 
+        0,0,0,1,0, 
+        0,0,0,0,1
+    };
+    ```
 * DEUTERANOMALY: for the color palette in the case of deuteranomaly, we used:
 ```
     <color name="primary_light_deuteranomaly">#F6C9B3</color> 
@@ -56,16 +56,16 @@ The colors of the application vary according to the selected abnormality also in
     <color name="secondary_text_deuteranomaly">#71686A</color> 
     <color name="divider_color_deuteranomaly">#C0B1B6</color>
   ```
-While to edit the images we applied the following grid:
-  ```
- private static final float[] DEUTERANOMALY = { 
-      0.8f,0.2f,0,0,0,
-      0.258f,0.742f,0,0,0, 
-      0,0.142f,0.858f,0,0, 
-      0,0,0,1,0,
-      0,0,0,0
-  };
-  ```
+  While to edit the images we applied the following grid:
+    ```
+   private static final float[] DEUTERANOMALY = { 
+        0.8f,0.2f,0,0,0,
+        0.258f,0.742f,0,0,0, 
+        0,0.142f,0.858f,0,0, 
+        0,0,0,1,0,
+        0,0,0,0
+    };
+    ```
 * ACHROMATOPSIA: for the color palette in the case of achromatopsia, we used:
 ```
     <color name="primary_light_mono">#E3CFC9</color>
@@ -75,7 +75,7 @@ While to edit the images we applied the following grid:
     <color name="secondary_text_mono">#6A6A6A</color> 
     <color name="divider_color_mono">#B5B5B5</color>
   ```
-While to edit the images we applied the following grid:
+  While to edit the images we applied the following grid:
   ```
  private static final float[] ACHROMATOPSIA = { 
       0.299f,0.587f,0.114f,0,0,
