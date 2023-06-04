@@ -7,6 +7,8 @@ The application performs two main functions:
 
 It is possible during the account registration phase to select which visual anomalies you are afflicted with by being able to choose from: **low vision**, **deuteranopia**, **deuteranomaly**, and **achromatopsia**.
 
+## Analysis of visual anomalies
+
 The colors of the application vary according to the selected abnormality also involving images retrieved from the internet. Specifically, for each case we treat, we have the following color palettes:
 * LOW VISION: for the color palette in the case of low vision or no visual abnormality, we used:
   ```
