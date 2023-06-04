@@ -27,9 +27,8 @@ The colors of the application vary according to the selected abnormality also in
           0,0,0,0,1
       };
       ```
-
 * DEUTERANOPY: for the color palette in the case of deuteranopia, we used:
-```
+  ```
     <color name="primary_light_deuteranopia">#F2CAB3</color> 
     <color name="primary_dark_deuteranopia">#9E7600</color> 
     <color name="primary_deuteranopia">#B38600</color>
@@ -38,7 +37,7 @@ The colors of the application vary according to the selected abnormality also in
     <color name="divider_color_deuteranopia">#C6AFB6</color>
   ```
    While to edit the images we applied the following grid:
-    ```
+   ```
    private static final float[] DEUTERANOPY = { 
         0.625f,0.375f,0,0,0,
         0.7f,0.3f,0,0,0, 
@@ -48,7 +47,7 @@ The colors of the application vary according to the selected abnormality also in
     };
     ```
 * DEUTERANOMALY: for the color palette in the case of deuteranomaly, we used:
-```
+  ```
     <color name="primary_light_deuteranomaly">#F6C9B3</color> 
     <color name="primary_dark_deuteranomaly">#B9680F</color> 
     <color name="primary_deuteranomaly">#D17613</color>
@@ -57,7 +56,7 @@ The colors of the application vary according to the selected abnormality also in
     <color name="divider_color_deuteranomaly">#C0B1B6</color>
   ```
   While to edit the images we applied the following grid:
-    ```
+  ```
    private static final float[] DEUTERANOMALY = { 
         0.8f,0.2f,0,0,0,
         0.258f,0.742f,0,0,0, 
@@ -67,7 +66,7 @@ The colors of the application vary according to the selected abnormality also in
     };
     ```
 * ACHROMATOPSIA: for the color palette in the case of achromatopsia, we used:
-```
+  ```
     <color name="primary_light_mono">#E3CFC9</color>
     <color name="primary_dark_mono">#955E50</color> 
     <color name="primary_mono">#A96D5D</color>
@@ -77,7 +76,7 @@ The colors of the application vary according to the selected abnormality also in
   ```
   While to edit the images we applied the following grid:
   ```
- private static final float[] ACHROMATOPSIA = { 
+  private static final float[] ACHROMATOPSIA = { 
       0.299f,0.587f,0.114f,0,0,
       0.299f,0.587f,0.114f,0,0, 
       0.299f,0.587f,0.114f,0,0,
