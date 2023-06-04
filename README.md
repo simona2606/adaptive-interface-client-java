@@ -16,7 +16,7 @@ The colors of the application vary according to the selected abnormality also in
      <color name="accent_color">#607D8B</color> 
      <color name="secondary_text">#757575</color> 
      <color name="divider_color">#BDBDBD</color> 
-  ```
+    ```
      While to edit the images we applied the following grid:
      ```
      private static final float[] LOW VISION = { 
@@ -25,7 +25,8 @@ The colors of the application vary according to the selected abnormality also in
           0,0,1,0,0, 
           0,0,0,1,0, 
           0,0,0,0,1
-      };```
+      };
+      ```
 * DEUTERANOPY: for the color palette in the case of deuteranopia, we used:
   ```
     <color name="primary_light_deuteranopia">#F2CAB3</color> 
