@@ -19,7 +19,7 @@ The colors of the application vary according to the selected abnormality also in
   ```
  While to edit the images we applied the following grid:
  ```
- private static final float[] NORMAL = { 
+ private static final float[] LOW VISION = { 
       1,0,0,0,0,
       0,1,0,0,0, 
       0,0,1,0,0, 
@@ -66,7 +66,7 @@ While to edit the images we applied the following grid:
       0,0,0,0
   };
   ```
-* ACROMATOPSIA: for the color palette in the case of achromatopsia, we used:
+* ACHROMATOPSIA: for the color palette in the case of achromatopsia, we used:
 ```
     <color name="primary_light_mono">#E3CFC9</color>
     <color name="primary_dark_mono">#955E50</color> 
@@ -77,7 +77,7 @@ While to edit the images we applied the following grid:
   ```
 While to edit the images we applied the following grid:
   ```
- private static final float[] DEUTERANOMALY = { 
+ private static final float[] ACHROMATOPSIA = { 
       0.299f,0.587f,0.114f,0,0,
       0.299f,0.587f,0.114f,0,0, 
       0.299f,0.587f,0.114f,0,0,
