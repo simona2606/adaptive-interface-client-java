@@ -26,7 +26,6 @@ The colors of the application vary according to the selected abnormality also in
           0,0,0,1,0, 
           0,0,0,0,1
       };
-      ```
 * DEUTERANOPY: for the color palette in the case of deuteranopia, we used:
   ```
     <color name="primary_light_deuteranopia">#F2CAB3</color> 
